@@ -6,7 +6,8 @@ namespace CGM1
 	{
 		public static void Main (string[] args)
 		{
-			Console.WriteLine ("Hello World!");
+			Console.ReadLine();
+			Matriz m = new Matriz ("[1, 2, 3][3, 2, 1][2, 1, 3]");
 		}
 	}
 }
