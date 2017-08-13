@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace CGM1 {
 	public class Matriz {
@@ -46,6 +45,68 @@ namespace CGM1 {
 		{
 			return matriz[(i - 1) * y + j];
 		}
+		public void guardaPosicao(int i, int j, int p)
+		{
+			matriz[(i - 1) * y + j] = p;
+		}
+
+		public Matriz soma(Matriz m)
+		{
+			if (x == m.x && y == m.y)
+			{
+				Matriz retorno = new Matriz(x, y);
+				int i = 0;
+				foreach (int r in matriz)
+				{
+					retorno.matriz[i] = matriz[i] + m.matriz[i];
+						i++;	
+				}
+				return retorno;
+			}
+			else return null;
+		}
+		public Matriz sutracao(Matriz m)
+		{
+			if (x == m.x && y == m.y)
+			{
+				Matriz retorno = new Matriz(x, y);
+				int i = 0;
+				foreach (int r in matriz)
+				{
+					retorno.matriz[i] = matriz[i] - m.matriz[i];
+					i++;
+				}
+				return retorno;
+			}
+			else return null;
+		}
+		public Matriz ecalar(int e)
+		{
+			Matriz retorno = new Matriz(x, y);
+			int i = 0;
+			foreach (int r in matriz)
+			{
+				retorno.matriz[i] = matriz[i] * e;
+				i++;
+			}
+			return retorno;
+		}
+
+		public Matriz multiplicacao(Matriz m)
+		{
+			if (y != m.x)
+				return null;
+			Matriz retorno = new Matriz(x, m.y);
+			for (int i = 0; i < this.y; i++)
+			{
+				for (int j = 0; j < m.x; j++)
+				{
+					retorno.guardaPosicao(i, j, this.pegaPosicao(i, j) * m.pegaPosicao(j, i));
+				}
+				
+			}
+
+			return retorno;
+		}
 	}
 }
-
