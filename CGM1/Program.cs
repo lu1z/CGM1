@@ -6,8 +6,9 @@ namespace CGM1
 	{
 		public static void Main (string[] args)
 		{
-			Console.ReadLine();
-			Matriz m = new Matriz ("[1, 2, 3][3, 2, 1][2, 1, 3]");
+			Matriz m = new Matriz ("[2, 3][0, 1][-1, 4]");
+			Matriz r = m.multiplicacao(new Matriz("[1, 2, 3][-2, 0, 4]"));
+			r = r;
 		}
 	}
 }

@@ -43,11 +43,11 @@ namespace CGM1 {
 		}
 		public int pegaPosicao(int i, int j)
 		{
-			return matriz[(i - 1) * y + j];
+			return matriz[i * y + j];
 		}
 		public void guardaPosicao(int i, int j, int p)
 		{
-			matriz[(i - 1) * y + j] = p;
+			matriz[i * y + j] = matriz[i * y + j] + p;
 		}
 
 		public Matriz soma(Matriz m)
@@ -92,16 +92,17 @@ namespace CGM1 {
 			return retorno;
 		}
 
-		public Matriz multiplicacao(Matriz m)
+		public Matriz multiplicacao(Matriz multiplicando)
 		{
-			if (y != m.x)
+			if (this.y != multiplicando.x)
 				return null;
-			Matriz retorno = new Matriz(x, m.y);
-			for (int i = 0; i < this.y; i++)
+			Matriz retorno = new Matriz(this.x, multiplicando.y);
+			for (int i = 0; i < this.x; i++)
 			{
-				for (int j = 0; j < m.x; j++)
+				for (int j = 0; j < multiplicando.y; j++)
 				{
-					retorno.guardaPosicao(i, j, this.pegaPosicao(i, j) * m.pegaPosicao(j, i));
+					for (int z = 0; z < this.y; z++)
+						retorno.guardaPosicao(i, j, this.pegaPosicao(i, z) * multiplicando.pegaPosicao(z, j));
 				}
 				
 			}
