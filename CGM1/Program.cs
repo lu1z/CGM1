@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Windows.Forms;
 
 namespace CGM1
 {
@@ -8,7 +8,10 @@ namespace CGM1
 		{
 			Matriz m = new Matriz ("[2, 3][0, 1][-1, 4]");
 			Matriz r = m.multiplicacao(new Matriz("[1, 2, 3][-2, 0, 4]"));
-			r = r;
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			Application.Run(new GUI());
+
 		}
 	}
 }
