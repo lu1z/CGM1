@@ -58,6 +58,12 @@ namespace CGM1 {
             this.Controls.Add(b2);
             this.Controls.Add(b3);
 
+            Brush aBrush = (Brush)Brushes.Black;
+            Graphics g = this.CreateGraphics();
+
+            int x, y = 10;
+            g.FillRectangle(aBrush, x, y, 1, 1);
+
 			this.ResumeLayout(false);
 		}
 
