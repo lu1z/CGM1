@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace CGM1 {
 	public partial class GUI : Form {
@@ -58,17 +59,20 @@ namespace CGM1 {
             this.Controls.Add(b2);
             this.Controls.Add(b3);
 
-            Brush aBrush = (Brush)Brushes.Black;
-            Graphics g = this.CreateGraphics();
-
-            int x, y = 10;
-            g.FillRectangle(aBrush, x, y, 1, 1);
-
 			this.ResumeLayout(false);
 		}
 
 		public void b1_Click(Object Sender, EventArgs e) {
-			
+            Brush aBrush = (Brush)Brushes.Black;
+            Graphics g = this.CreateGraphics();
+
+            int x = 1;
+            int y = 1;
+            g.FillRectangle(aBrush, x, y, 10, 10);
+
+            Pen myPen = new Pen(System.Drawing.Color.Red, 5);
+
+            g.DrawLine(myPen, 20, 20, 200, 210);
 		}
 	}
 }
