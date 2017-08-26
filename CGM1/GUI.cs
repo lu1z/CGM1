@@ -12,6 +12,8 @@ namespace CGM1 {
 		public Button b2;
 		public Button b3;
 
+        public Graphics g;
+
 		public GUI() {
             InitializeComponent();
 		}
@@ -59,6 +61,8 @@ namespace CGM1 {
             this.Controls.Add(b2);
             this.Controls.Add(b3);
 
+            g = this.CreateGraphics();
+
 			this.ResumeLayout(false);
 		}
 
@@ -68,11 +72,11 @@ namespace CGM1 {
 
             int x = 1;
             int y = 1;
-            g.FillRectangle(aBrush, x, y, 10, 10);
+            g.FillRectangle(aBrush, x, y, 1, 1);
 
-            Pen myPen = new Pen(System.Drawing.Color.Red, 5);
+            //Pen myPen = new Pen(System.Drawing.Color.Red, 5);
 
-            g.DrawLine(myPen, 20, 20, 200, 210);
+            //g.DrawLine(myPen, 20, 20, 200, 210);
 		}
 	}
 }

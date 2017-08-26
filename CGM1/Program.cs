@@ -10,8 +10,11 @@ namespace CGM1
 			Matriz r = m.multiplicacao(new Matriz("[1, 2, 3][-2, 0, 4]"));
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new GUI());
+            GUI telinha = new GUI();
+			Application.Run(telinha);
 
+            Dezenheiro d = new Dezenheiro(telinha.g);
+            d.dezenhaPoligono(m);
 		}
 	}
 }
