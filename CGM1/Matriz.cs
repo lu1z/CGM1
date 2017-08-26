@@ -4,7 +4,7 @@ namespace CGM1 {
 	public class Matriz {
 		int x;
 		int y;
-		int[] matriz;
+		public int[] matriz;
 		public Matriz (int linhas, int colunas) {
 			matriz = new int[linhas * colunas];
 			x = linhas;

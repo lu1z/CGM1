@@ -52,7 +52,6 @@ namespace CGM1
                     error += dx;
                 }
             }
-            break;
         }
 
         public void dezenhaPonto(int x, int y)
@@ -63,7 +62,7 @@ namespace CGM1
         public void dezenhaPoligono(Matriz m)
         {
             int anterior = 1;
-            for (int corrente = 3; corrente < m.matriz.length; corrente = corrente + 2)
+            for (int corrente = 3; corrente < m.matriz.Length; corrente = corrente + 2)
             {
                 dezenhaLinha(m.matriz[anterior - 1], m.matriz[anterior], m.matriz[corrente - 1], m.matriz[corrente]);
                 anterior = corrente;

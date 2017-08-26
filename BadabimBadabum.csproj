@@ -67,6 +67,7 @@
     <Content Include=".git\ms-persist.xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CGM1\Dezenheiro.cs" />
     <Compile Include="CGM1\GUI.cs">
       <SubType>Form</SubType>
     </Compile>
