@@ -55,11 +55,11 @@ namespace CGM1 {
 			t3.ReadOnly = true;
 
 			this.Controls.Add(t1);
-            this.Controls.Add(t2);
-            this.Controls.Add(t3);
+            //this.Controls.Add(t2);
+            //this.Controls.Add(t3);
             this.Controls.Add(b1);
             this.Controls.Add(b2);
-            this.Controls.Add(b3);
+            //this.Controls.Add(b3);
 
             g = this.CreateGraphics();
 
@@ -67,16 +67,10 @@ namespace CGM1 {
 		}
 
 		public void b1_Click(Object Sender, EventArgs e) {
-            Brush aBrush = (Brush)Brushes.Black;
-            Graphics g = this.CreateGraphics();
+			Matriz m = new Matriz(t1.Text);
 
-            int x = 1;
-            int y = 1;
-            g.FillRectangle(aBrush, x, y, 1, 1);
-
-            //Pen myPen = new Pen(System.Drawing.Color.Red, 5);
-
-            //g.DrawLine(myPen, 20, 20, 200, 210);
+			Dezenheiro d = new Dezenheiro(g);
+			d.dezenhaPoligono(m);
 		}
 	}
 }
