@@ -2,11 +2,12 @@
 
 namespace CGM1 {
 	public class Matriz {
-		int x;
-		int y;
-		public int[] matriz;
+		public int x;
+		public int y;
+		public double[] matriz;
+
 		public Matriz (int linhas, int colunas) {
-			matriz = new int[linhas * colunas];
+			matriz = new double[linhas * colunas];
 			x = linhas;
 			y = colunas;
 		}
@@ -16,7 +17,7 @@ namespace CGM1 {
 		 * 		[2, 1, 3]
 		 */
 		public Matriz(String matrizTexto) {
-			matriz = new int[1];
+			matriz = new double[1];
 			int i = 0;
 			int j = 0;
 
@@ -28,24 +29,24 @@ namespace CGM1 {
 					continue;
 				}
 				i++;
-				colunas = linha.Split(',');
+				colunas = linha.Split(';');
 				foreach (String coluna in colunas) {
-					String t =coluna.Replace(']', ' ');
+					String t = coluna.Replace(']', ' ');
 					j++;
-					int[] temp = new int[j];
+					double[] temp = new double[j];
 					matriz.CopyTo(temp, 0);
 					matriz = temp;
-					matriz[j - 1] = Int32.Parse(t);
+					matriz[j - 1] = Double.Parse(t);
 				}
 				x = i;
 				y = j / i;
 			}
 		}
-		public int pegaPosicao(int i, int j)
+		public double pegaPosicao(int i, int j)
 		{
 			return matriz[i * y + j];
 		}
-		public void guardaPosicao(int i, int j, int p)
+		public void guardaPosicao(int i, int j, double p)
 		{
 			matriz[i * y + j] = matriz[i * y + j] + p;
 		}
@@ -63,7 +64,8 @@ namespace CGM1 {
 				}
 				return retorno;
 			}
-			else return null;
+			else
+				return null;
 		}
 		public Matriz sutracao(Matriz m)
 		{
@@ -80,7 +82,7 @@ namespace CGM1 {
 			}
 			else return null;
 		}
-		public Matriz ecalar(int e)
+		public Matriz ecalar(double e)
 		{
 			Matriz retorno = new Matriz(x, y);
 			int i = 0;
@@ -108,6 +110,11 @@ namespace CGM1 {
 			}
 
 			return retorno;
+		}
+		public Matriz rotacao(int grau) {
+
+			return this.multiplicacao(new Matriz("[" + Math.Cos(grau) + "; " + -Math.Sin(grau)+ "][" + Math.Sin(grau) + "; " + Math.Cos(grau) + "]"));
+
 		}
 	}
 }

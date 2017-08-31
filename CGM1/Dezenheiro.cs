@@ -64,10 +64,10 @@ namespace CGM1
             int anterior = 1;
             for (int corrente = 3; corrente < m.matriz.Length; corrente = corrente + 2)
             {
-                dezenhaLinha(m.matriz[anterior - 1], m.matriz[anterior], m.matriz[corrente - 1], m.matriz[corrente]);
+				dezenhaLinha(Convert.ToInt32(m.matriz[anterior - 1]), Convert.ToInt32(m.matriz[anterior]), Convert.ToInt32(m.matriz[corrente - 1]), Convert.ToInt32(m.matriz[corrente]));
                 anterior = corrente;
             }
-            dezenhaLinha(m.matriz[anterior - 1], m.matriz[anterior], m.matriz[0], m.matriz[0]);
+			dezenhaLinha(Convert.ToInt32(m.matriz[anterior - 1]), Convert.ToInt32(m.matriz[anterior]), Convert.ToInt32(m.matriz[0]), Convert.ToInt32(m.matriz[1]));
         }
     }
 }
