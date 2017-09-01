@@ -85,7 +85,7 @@ namespace CGM1 {
 					t3.Text = translacao.ToString();
 					break;
 				case "*" :
-					Matriz escalar = matriz.ecalar(Int32.Parse(t2.Text));
+					Matriz escalar = matriz.ecalar(Double.Parse(t2.Text));
 					d.dezenhaPoligono(matriz);
 					d.dezenhaPoligono(escalar);
 					t3.Text = escalar.ToString();
