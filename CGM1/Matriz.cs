@@ -11,10 +11,10 @@ namespace CGM1 {
 			x = linhas;
 			y = colunas;
 		}
-		/* Matriz de texto: Cada linha é denotada por um "[" no comeco e um "]" no final com os valores das colunas separados por ",";
-		 * Ex : [1, 2, 3]
-		 * 		[3, 2, 1]
-		 * 		[2, 1, 3]
+		/* Matriz de texto: Cada linha é denotada por um "[" no comeco e um "]" no final com os valores das colunas separados por "; ";
+		 * Ex : [1; 2; 3]
+		 * 		[3; 2; 1]
+		 * 		[2; 1; 3]
 		 */
 		public Matriz(String matrizTexto) {
 			matriz = new double[1];
@@ -112,9 +112,27 @@ namespace CGM1 {
 			return retorno;
 		}
 		public Matriz rotacao(int grau) {
+			double radiano = (Math.PI / 180) * grau;
+			return this.multiplicacao(new Matriz("[" + Math.Cos(radiano) + "; " + Math.Sin(radiano)+ "][" + (-Math.Sin(radiano)) + "; " + Math.Cos(radiano) + "]"));
 
-			return this.multiplicacao(new Matriz("[" + Math.Cos(grau) + "; " + -Math.Sin(grau)+ "][" + Math.Sin(grau) + "; " + Math.Cos(grau) + "]"));
-
+		}
+		public override String ToString()
+		{
+			String retorno = "";
+			for (int i = 0; i < x; i++)
+			{
+				retorno += "[";
+				for (int j = 0; j < y; j++)
+				{
+					retorno += pegaPosicao(i, j);
+					if (j < (y - 1))
+					{
+						retorno += "; ";
+					}
+				}
+				retorno += "]";			
+			}
+			return retorno;
 		}
 	}
 }

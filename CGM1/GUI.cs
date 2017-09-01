@@ -29,30 +29,30 @@ namespace CGM1 {
 			this.StartPosition = FormStartPosition.CenterScreen;
 
 			t1 = new TextBox();
-			t1.Location  = new System.Drawing.Point(12,12);
+			t1.Location  = new System.Drawing.Point(962,562);
 			t1.Size = new System.Drawing.Size(260, 0);
 
 			b1 = new Button();
-			b1.Location = new System.Drawing.Point(12,44);
+			b1.Location = new System.Drawing.Point(962,594);
 			b1.Text = "+";
 			b1.Click += new System.EventHandler(b1_Click);
 
 			b2 = new Button();
-			b2.Location = new System.Drawing.Point(104,44);
+			b2.Location = new System.Drawing.Point(1064,594);
 			b2.Text = "*";
 			b2.Click += new System.EventHandler(b1_Click);
 
 			b3 = new Button();
-			b3.Location = new System.Drawing.Point(196,44);
+			b3.Location = new System.Drawing.Point(1146,594);
 			b3.Text = "r";
 			b3.Click += new System.EventHandler(b1_Click);
 
 			t2 = new TextBox();
-			t2.Location  = new System.Drawing.Point(12,76);
+			t2.Location  = new System.Drawing.Point(962,626);
 			t2.Size = new System.Drawing.Size(260, 0);
 
 			t3 = new TextBox();
-			t3.Location  = new System.Drawing.Point(12,108);
+			t3.Location  = new System.Drawing.Point(962,658);
 			t3.Size = new System.Drawing.Size(260, 0);
 			t3.ReadOnly = true;
 
@@ -82,17 +82,20 @@ namespace CGM1 {
 					Matriz translacao = matriz.soma(new Matriz(matrizTextoTranslacao));
 					d.dezenhaPoligono(matriz);
 					d.dezenhaPoligono(translacao);
+					t3.Text = translacao.ToString();
 					break;
 				case "*" :
 					Matriz escalar = matriz.ecalar(Int32.Parse(t2.Text));
 					d.dezenhaPoligono(matriz);
 					d.dezenhaPoligono(escalar);
+					t3.Text = escalar.ToString();
 					break;
 				case "r" :
-				Matriz rotacao = matriz.rotacao(Int32.Parse(t2.Text));
-				d.dezenhaPoligono(matriz);
-				d.dezenhaPoligono(rotacao);
-				break;	
+					Matriz rotacao = matriz.rotacao(Int32.Parse(t2.Text));
+					d.dezenhaPoligono(matriz);
+					d.dezenhaPoligono(rotacao);
+					t3.Text = rotacao.ToString();
+					break;	
 			}
 		}
 	}
